@@ -1,7 +1,7 @@
 module.exports = {
   0: {
     title: 'jetrunner',
-    image: '/banners/week-1.jpg',
+    image: '/playlist-backgrounds/week-1.jpg',
     keyColor: '#28b39c',
     spotifyKey: '0jtykKx3Aqow1QnPm6bkq3',
     songs: 10,
@@ -18,7 +18,7 @@ module.exports = {
   },
   1: {
     title: 'Ani Ratz Achshav.',
-    image: '/banners/week-3.jpg',
+    image: '/playlist-backgrounds/week-2.jpg',
     keyColor: '#2196F3',
     spotifyKey: '79TdmRFBuUNoEETrt5tpbE',
     songs: 12,
