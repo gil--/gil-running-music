@@ -37,12 +37,14 @@ class Playlist extends Component {
     this.setState({ showSpotifyIframe: true });
     document.documentElement.style.setProperty(`--showDecorations`, 0);
     document.documentElement.style.setProperty(`--backgroundBlur`, '15px');
+    document.body.classList.add('js-no-scroll');
   }
 
   onClickClose() {
     this.setState({ showSpotifyIframe: false });
     document.documentElement.style.setProperty(`--showDecorations`, 1);
     document.documentElement.style.setProperty(`--backgroundBlur`, 0);
+    document.body.classList.remove('js-no-scroll');
   }
 
   _handleWaypointEnter() {
