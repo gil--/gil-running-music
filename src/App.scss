@@ -1,0 +1,287 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+$color-darkest: #181818;
+
+:root {
+  --keyColor: #1ed25e;
+  --border-width: 40px;
+  --showDecorations: 1; // only use 1 or 0
+  --backgroundBlur: 0;
+}
+
+@mixin decorationMode {
+  opacity: var(--showDecorations);
+  transition: opacity .25s ease;
+}
+
+body {
+  background: $color-darkest;
+  font-family: "futura-pt", sans-serif;
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    border: var(--border-width) solid #181818;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 10;
+  }
+}
+
+.title {
+  top: 15px;
+}
+
+.count {
+  bottom: 12px;
+}
+
+.title,
+.count {
+  position: fixed;
+  left: 50%;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--keyColor);
+  transform: translateX(-50%);
+  z-index: 20;
+  @include decorationMode;
+}
+
+.playlist {
+  position: relative;
+  min-height: 100vh;
+  color: $color-darkest;
+  background-color: #fff;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 300px black;
+    outline: 20px solid rgba(0, 0, 0, 0.25);
+    outline-offset: -60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &__embed {
+    position: fixed;
+    top: calc(var(--border-width) * 2);
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100vh - (var(--border-width) * 6));
+    z-index: 1;
+    transition: opacity .25s ease;
+
+    > button {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: transparent;
+      border: 0;
+
+      &:hover svg {
+        transform: rotate(-90deg);
+      }
+
+      svg {
+         transition: transform .15s ease-in;
+
+        * {
+          fill: white;
+        }
+      }
+    }
+
+    iframe {
+      $iframe__padding: 70px;
+      height: calc(100vh - #{$iframe__padding * 2});
+      padding-top: $iframe__padding;
+      max-height: 60vh;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: calc(50% + 50px);
+    left: 50%;
+    font-size: 34px;
+    color: #fff;
+    text-shadow: 2px 1px 0px rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    @include decorationMode;
+
+    * {
+      margin: 0;
+      text-align: center;
+    }
+
+    .explicit {
+      margin-left: 5px;
+      padding: 4px 6px;
+      font-size: 12px;
+      text-shadow: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: red;
+      background-color: rgba($color-darkest, .25);
+      vertical-align: super;
+      outline: 1px solid;
+      outline-offset: -2px;
+    }
+  }
+
+  &__number {
+    position: fixed;
+    left: calc(var(--border-width) + 20px);
+    bottom: calc(var(--border-width) + 20px);
+    padding: 20px;
+    padding-right: 10px;
+    font-size: 56px;
+    color: white;
+    background-color: $color-darkest;
+    z-index: 5;
+    opacity: var(--showDecorations);
+
+    h2 {
+      margin: 0;
+    }
+
+    span {
+      padding-right: 5px;
+      text-transform: uppercase;
+      font-size: 45px;
+      vertical-align: super;
+    }
+  }
+
+  &__banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--keyColor);
+
+    &::after {
+      //content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--keyColor);
+      mix-blend-mode: lighten;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1.1) blur(var(--backgroundBlur));
+    }
+  }
+
+  &__play {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: 50%;
+    background: transparent;
+    border: 0;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    @include decorationMode;
+
+    svg {
+      display: block;
+      height: 90px;
+      width: 90px;
+    }
+  }
+
+  &__stats {
+    position: absolute;
+    top: calc(var(--border-width) + 20px);
+    right: calc(var(--border-width) + 20px);
+    margin: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+    z-index: 1;
+    color: #fff;
+    @include decorationMode;
+
+    ul {
+      margin: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      padding: 0;
+      list-style: none;
+      font-size: 18px;
+    }
+
+    svg {
+      display: block;
+      margin-left: 10px;
+      width: 14px;
+      height: 14px;
+      opacity: .85;
+
+      * {
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__tags {
+    position: absolute;
+    right: calc(var(--border-width) + 20px);;
+    bottom: calc(var(--border-width) + 20px);;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    color: #fff;
+    @include decorationMode;
+    z-index: 5;
+
+    li {
+      padding: 5px;
+      font-size: 14px;
+      font-weight: bold;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+
+        &::after {
+          content: '/';
+          position: absolute;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
