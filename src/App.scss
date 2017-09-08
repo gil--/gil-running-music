@@ -69,7 +69,7 @@ body {
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 1.5px;
-  color: var(--keyColor);
+  color: white;
   transform: translateX(-50%);
   z-index: 20;
   @include decorationMode;
@@ -206,25 +206,24 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--keyColor);
 
-    &::after {
-      //content: '';
+    &::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: var(--keyColor);
-      mix-blend-mode: lighten;
+      background-color: rgba(0, 0, 0, 0.4);
+      mix-blend-mode: darken;
+      z-index: 1;
     }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1.1) blur(var(--backgroundBlur));
+      filter: blur(var(--backgroundBlur));
     }
   }
 
@@ -252,7 +251,7 @@ body {
     margin: 0;
     padding-top: 10px;
     padding-right: 10px;
-    z-index: 1;
+    z-index: 2;
     color: #fff;
     @include decorationMode;
 

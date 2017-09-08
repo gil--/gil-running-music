@@ -60,9 +60,6 @@ class Playlist extends Component {
   render() {
     const explicitFlag = this.isPlaylistExplicit();
     const tags = this.tags(this.props.tags);
-    const bannerStyle = {
-      backgroundColor: this.props.keyColor,
-    };
 
     const spotifyIframe = this.state.showSpotifyIframe? (
       <div className="playlist__embed">
@@ -98,7 +95,7 @@ class Playlist extends Component {
           <div className="playlist__stats">
             <ul>
                <li>
-                 <span>{this.props.songsCount} songs</span>
+                 <span>{this.props.songsCount}</span>
                  <ReactSVG
                    path="/svg/note.svg"
                    className="icon"
@@ -106,7 +103,7 @@ class Playlist extends Component {
                </li>
 
                <li>
-                 <span>{this.props.duration} minutes</span>
+                 <span>{this.props.duration} min</span>
                  <ReactSVG
                    path="/svg/clock.svg"
                    className="icon"
@@ -115,8 +112,8 @@ class Playlist extends Component {
             </ul>
           </div>
 
-          <div className="playlist__banner" style={bannerStyle}>
-            <img alt="" src={this.props.image} />
+          <div className="playlist__banner">
+            <img alt="Playlist Banner" src={this.props.image} />
           </div>
 
           {spotifyIframe}
