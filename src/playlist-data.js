@@ -1,8 +1,8 @@
 module.exports = {
   0: {
     title: 'jetrunner',
-    image: 'https://source.unsplash.com/user/erondu/1600x900',
-    keyColor: '#1ed25e',
+    image: '/banners/week-1.jpg',
+    keyColor: '#28b39c',
     spotifyKey: '0jtykKx3Aqow1QnPm6bkq3',
     songs: 10,
     duration: 43,
@@ -18,8 +18,8 @@ module.exports = {
   },
   1: {
     title: 'Ani Ratz Achshav.',
-    image: 'https://source.unsplash.com/user/erondu/1600x900',
-    keyColor: 'blue',
+    image: '/banners/week-3.jpg',
+    keyColor: '#2196F3',
     spotifyKey: '79TdmRFBuUNoEETrt5tpbE',
     songs: 12,
     duration: 52,
