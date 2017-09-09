@@ -85,6 +85,10 @@ body {
   color: $color-darkest;
   background-color: #fff;
 
+  &:not(:last-child) {
+    border-bottom: 5px solid $color-darkest;
+  }
+
   &::before {
     content: '';
     position: fixed;

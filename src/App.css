@@ -65,6 +65,8 @@ body {
   min-height: 100vh;
   color: #181818;
   background-color: #fff; }
+  .playlist:not(:last-child) {
+    border-bottom: 5px solid #181818; }
   .playlist::before {
     content: '';
     position: fixed;
